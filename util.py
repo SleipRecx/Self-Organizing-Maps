@@ -12,6 +12,10 @@ def euclidean_distance(vec1: tensor, vec2: tensor) -> float:
     return np.linalg.norm(vec2 - vec1)
 
 
+def tsp_distance(index1: int, index2: int, output_size: int) -> float:
+    return min(abs(index2 - index1), output_size - abs(index2 - index1))
+
+
 def best_matching_unit(vec: tensor, weights: tensor) -> int:
     distances = np.apply_along_axis(euclidean_distance, 1, weights, vec)
     return distances.argmin()

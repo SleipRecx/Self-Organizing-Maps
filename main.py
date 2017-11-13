@@ -1,7 +1,6 @@
 from visual import create_gif
 from tsp import parse_tsp_problem, create_tsp_solution
 from som import SOM
-import imageio
 
 def solve_tsp(filename: str):
     # Parse problem from txt file
@@ -19,4 +18,4 @@ def solve_tsp(filename: str):
 
 
 if __name__ == "__main__":
-    solve_tsp(filename="data/2.txt")
+    solve_tsp(filename="data/8.txt")

@@ -1,6 +1,6 @@
 import numpy as np
 from visual import print_progress, visualize_tsp
-from util import best_matching_unit, euclidean_distance, decay_function
+from util import best_matching_unit, tsp_distance, decay_function
 from tsp import create_tsp_solution
 import math
 
@@ -39,6 +39,6 @@ class SOM:
                 self.weights[bmu] = self.weights[bmu] + learning_rate * (example - self.weights[bmu])
                 neighbours = self.get_neighbourhood(bmu, radius)
                 for i in neighbours:
-                    distance = euclidean_distance(tensor([bmu]), tensor([i]))
+                    distance = tsp_distance(bmu, i, len(self.weights))
                     influence = np.exp(-distance ** 2 / (2 * radius ** 2))
                     self.weights[i] = self.weights[i] + influence * learning_rate * (example - self.weights[i])

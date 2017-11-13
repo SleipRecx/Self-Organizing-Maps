@@ -21,12 +21,15 @@ def visualize_tsp(cities: tensor, weights: tensor):
     plt.plot(x, y, "ko")
     plt.plot(x, y, color="blue")
 
-    # weights = weights.tolist()
-    # weights.append(weights[0])
-    # weights = tensor(weights)
-    # x = [c[0] for c in weights]
-    # y = [c[1] for c in weights]
-    # plt.plot(x, y, color="black", linestyle="dashed")
+    weights = weights.tolist()
+    weights.append(weights[0])
+    weights = tensor(weights)
+    x = [c[0] for c in weights]
+    y = [c[1] for c in weights]
+    plt.plot(x, y, color="black", linestyle="dashed")
+
+    if not os.path.exists("images"):
+        os.makedirs("images")
     files = os.listdir("images")
     files = list(filter(lambda x: "png" in x, files))
     current = 0
@@ -34,6 +37,7 @@ def visualize_tsp(cities: tensor, weights: tensor):
         numbers = sorted(list(map(lambda x: int(x.split("/")[-1].split(".")[0]), files)))
         current = numbers[-1]
     name = "images/" + str(current + 1) + ".png"
+    plt.pause(0.001)
     plt.savefig(name)
 
 
