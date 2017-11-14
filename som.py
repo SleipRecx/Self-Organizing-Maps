@@ -9,11 +9,12 @@ np.random.seed(123)
 
 
 class SOM:
-    def __init__(self, cases: tensor, epochs: int = 100, weight_scale: int = 7, decay: str = "exp"):
+    def __init__(self, cases: tensor, epochs: int = 300, weight_scale: int = 5, decay: str = "exp"):
         self.cases = cases
-        self.weights = np.random.normal(self.cases.min(), self.cases.max(), size=self.cases.shape) * weight_scale
+        self.weight_scale = weight_scale
+        self.weights = np.random.uniform(self.cases.min(), self.cases.max(), size=self.cases.shape) * weight_scale
         self.epochs = epochs
-        self.init_learning_rate = 0.65
+        self.init_learning_rate = 0.1
         self.init_radius = len(self.cases) / 2
         self.radius_constant = self.epochs / np.log(self.init_radius)
         self.decay_function = decay_function(decay)
@@ -32,8 +33,9 @@ class SOM:
             learning_rate = self.decay_function(self.init_learning_rate, epoch, self.epochs)
             radius = int(self.decay_function(self.init_radius, epoch, self.radius_constant))
             print_progress(epoch, self.epochs)
-            solution = create_tsp_solution(self.cases, self.weights)
-            visualize_tsp(solution, self.weights)
+            #if epoch % 10 == 0:
+             #   solution = create_tsp_solution(self.cases, self.weights)
+              #  visualize_tsp(solution, self.weights)
             for example in examples:
                 bmu = best_matching_unit(vec=example, weights=self.weights)
                 self.weights[bmu] = self.weights[bmu] + learning_rate * (example - self.weights[bmu])

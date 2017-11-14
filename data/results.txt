@@ -1,0 +1,37 @@
+File            Epochs          Learning Rate           Weight scale        Result
+data/8.txt 	    epochs:300 	    learning_rate:0.2 	    weight_scale:5      result:1338
+data/8.txt 	    epochs:300 	    learning_rate:0.2 	    weight_scale:10     result:1338
+data/8.txt 	    epochs:300 	    learning_rate:0.3 	    weight_scale:10     result:1371
+data/8.txt 	    epochs:300 	    learning_rate:0.1 	    weight_scale:10     result:1327
+data/8.txt 	    epochs:300 	    learning_rate:0.05 	    weight_scale:10     result:1289
+data/8.txt 	    epochs:1000 	learning_rate:0.05 	    weight_scale:5 	    result:1293
+data/8.txt 	    epochs:300 	    learning_rate:0.04 	    weight_scale:10     result:1291
+data/1.txt 	    epochs:300 	    learning_rate:0.1 	    weight_scale:10 	result:8364
+data/2.txt 	    epochs:300 	    learning_rate:0.1 	    weight_scale:10 	result:6633
+data/2.txt 	    epochs:300 	    learning_rate:0.1 	    weight_scale:10 	result:6633
+data/2.txt		epochs:5		learning_rate:0.1		weight_scale:10		result:8297		1.3580439690413677 
+data/2.txt		epochs:5		learning_rate:0.1		weight_scale:10		result:8297		0.7363531835466947 
+data/2.txt		epochs:5		learning_rate:0.1		weight_scale:10		result:8297		0.7363531835466947 
+data/2.txt		epochs:300		learning_rate:0.1		weight_scale:10		result:6633		0.9210742975796661 
+data/3.txt		epochs:300		learning_rate:0.1		weight_scale:10		result:687		0.915210539365353 
+data/4.txt		epochs:300		learning_rate:0.1		weight_scale:10		result:24070		0.9167964922774905 
+data/4.txt		epochs:300		learning_rate:0.1		weight_scale:10		result:23765			0.9285794706512963 
+data/4.txt		epochs:300		learning_rate:0.1		weight_scale:10		result:23765		min_result:24274.8
+data/5.txt		epochs:300		learning_rate:0.1		weight_scale:10		result:15374		min_result:15816.9 
+data/6.txt		epochs:300		learning_rate:0.1		weight_scale:10		result:124187		min_result:118974.9 
+data/7.txt		epochs:300		learning_rate:0.1		weight_scale:10		result:62777		min_result:64933.0 
+data/8.txt		epochs:300		learning_rate:0.1		weight_scale:10		result:1284		min_result:1332.1 
+data/9.txt		epochs:300		learning_rate:0.1		weight_scale:10		result:44898		min_result:46288.0 (u159)
+data/9.txt		epochs:300		learning_rate:0.1		weight_scale:10		result:46356		min_result:46101.0 (u724)
+data/6.txt		epochs:300		learning_rate:0.1		weight_scale:10		result:124187		min_result:118974.9 
+data/6.txt		epochs:300		learning_rate:0.1		weight_scale:5		result:124187		min_result:118974.9 
+data/6.txt		epochs:300		learning_rate:0.1		weight_scale:1		result:117095		min_result:118974.9 
+data/6.txt		epochs:300		learning_rate:0.2		weight_scale:1		result:119843		min_result:118974.9 
+data/6.txt		epochs:300		learning_rate:0.2		weight_scale:10		result:117125		min_result:118974.9 
+data/1.txt		epochs:300		learning_rate:0.2		weight_scale:10		result:8648		min_result:8296.2 
+data/1.txt		epochs:300		learning_rate:0.2		weight_scale:1		result:8648		min_result:8296.2 
+data/1.txt		epochs:300		learning_rate:0.2		weight_scale:1		result:8648		min_result:8296.2 
+data/1.txt		epochs:300		learning_rate:0.3		weight_scale:10		result:8726		min_result:8296.2 
+data/1.txt		epochs:300		learning_rate:0.3		weight_scale:5		result:8434		min_result:8296.2 
+data/1.txt		epochs:300		learning_rate:0.1		weight_scale:10		result:8364		min_result:8296.2 
+data/1.txt		epochs:300		learning_rate:0.1		weight_scale:5		result:8364		min_result:8296.2 
