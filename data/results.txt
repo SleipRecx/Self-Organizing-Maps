@@ -35,3 +35,6 @@ data/1.txt		epochs:300		learning_rate:0.3		weight_scale:10		result:8726		min_res
 data/1.txt		epochs:300		learning_rate:0.3		weight_scale:5		result:8434		min_result:8296.2 
 data/1.txt		epochs:300		learning_rate:0.1		weight_scale:10		result:8364		min_result:8296.2 
 data/1.txt		epochs:300		learning_rate:0.1		weight_scale:5		result:8364		min_result:8296.2 
+data/8.txt		epochs:300		learning_rate:0.1		weight_scale:5		result:1284		min_result:1332.1 
+data/8.txt		epochs:300		learning_rate:0.1		weight_scale:5		result:1327		min_result:1332.1 
+data/8.txt		epochs:300		learning_rate:0.1		weight_scale:5		result:1284		min_result:1332.1 

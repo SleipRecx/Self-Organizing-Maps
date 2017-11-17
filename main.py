@@ -1,5 +1,5 @@
-from visual import create_gif
-from tsp import parse_tsp_problem, create_tsp_solution, tsp_distance
+from tsp import parse_tsp_problem, create_tsp_solution
+from visual import visualize_tsp
 from som import SOM
 
 
@@ -28,10 +28,11 @@ def solve_tsp(filename: str):
 
     # Use Som weights to generate a solution for tsp problem
     solution = create_tsp_solution(som.cases, som.weights)
-    #create_gif()
+    visualize_tsp(solution, som.weights)
 
-    log_params_result(som.epochs, som.init_learning_rate, som.weight_scale, filename, tsp_distance(solution))
+
+    #log_params_result(som.epochs, som.init_learning_rate, som.weight_scale, filename, tsp_distance(solution))
 
 
 if __name__ == "__main__":
-    solve_tsp(filename="data/1.txt")
+    solve_tsp(filename="data/8.txt")

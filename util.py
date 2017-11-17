@@ -1,5 +1,4 @@
 import numpy as np
-from typing import Callable
 
 tensor = np.array
 
@@ -21,7 +20,20 @@ def best_matching_unit(vec: tensor, weights: tensor) -> int:
     return distances.argmin()
 
 
-def decay_function(name: str) -> Callable:
+def best_matching_unit2d(vec: tensor, weights: tensor) -> tensor:
+    best_distance = float("inf")
+    best_index = tensor([0, 0])
+    for i in range(weights.shape[0]):
+        for j in range(weights.shape[1]):
+            vec2 = weights[i][j]
+            result = euclidean_distance(vec, vec2)
+            best_distance = min(result, best_distance)
+            if best_distance == result:
+                best_index = tensor([i, j])
+    return best_index
+
+
+def decay_function(name: str):
     def exp_decay(number: float, time: int, time_constant: int) -> float:
         return number * np.exp((-time / time_constant))
 
