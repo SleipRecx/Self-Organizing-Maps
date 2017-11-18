@@ -11,7 +11,7 @@ np.random.seed(123)
 
 
 class SOM:
-    def __init__(self, cases: tensor, epochs: int = 300, weight_scale: int = 5):
+    def __init__(self, cases: tensor, epochs: int = 200, weight_scale: int = 3):
         self.cases = cases
         self.weight_scale = weight_scale
         self.weights = np.random.uniform(cases.min(), cases.max(), size=(cases.shape[0] * weight_scale, cases.shape[1]))
