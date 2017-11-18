@@ -3,6 +3,7 @@ from itertools import product
 from visual import print_progress, visualize_tsp
 from util import best_matching_unit, tsp_distance, decay_function, euclidean_distance, best_matching_unit2d
 from tsp import create_tsp_solution
+from visual import mnist_map
 from typing import List, Tuple
 import math
 
@@ -49,7 +50,7 @@ class SOM:
 
 
 class MSOM:
-    def __init__(self, cases: tensor, labels: tensor, epochs: int = 2, output_shape: Tuple = (20, 20)):
+    def __init__(self, cases: tensor, labels: tensor, epochs: int = 4, output_shape: Tuple = (20, 20)):
         self.cases = cases
         self.labels = tensor(list(map(lambda x: x.argmax(), labels)))
         self.epochs = epochs
@@ -57,9 +58,10 @@ class MSOM:
         self.output_rows, self.output_cols = output_shape
         self.weights = np.random.uniform(0, 1, size=(self.output_rows, self.output_cols, self.cases.shape[1]))
         self.init_learning_rate = 0.7
-        self.init_radius = 5
+        self.init_radius = 10
         self.radius_constant = self.epochs / np.log(self.init_radius)
         self.decay_function = decay_function("exp")
+        self.reset_winning_node()
 
     def get_neighbourhood(self, index: tensor, radius: float) -> List[Tuple]:
         result = []
@@ -78,15 +80,16 @@ class MSOM:
 
     def train(self):
         for epoch in range(self.epochs):
+            mnist_map(self.weights, self.classes)
             self.reset_winning_node()
             learning_rate = self.decay_function(self.init_learning_rate, epoch, self.epochs)
             radius = self.decay_function(self.init_radius, epoch, self.radius_constant)
             print_progress(epoch, self.epochs)
-            for i in range(len(self.cases)):
-                example = self.cases[i]
+            for x in range(len(self.cases)):
+                example = self.cases[x]
                 bmu = best_matching_unit2d(example, self.weights)
                 i, j = bmu[0], bmu[1]
-                self.classes[tuple(bmu)][self.labels[i]] += 1
+                self.classes[tuple(bmu)][self.labels[x]] += 1
                 self.weights[i][j] = self.weights[i][j] + learning_rate * (example - self.weights[i][j])
                 neighbours = self.get_neighbourhood(bmu, radius)
                 for neighbour in neighbours:
@@ -103,5 +106,3 @@ class MSOM:
             index = prediction.index(max(prediction))
             result.append(index)
         return result
-
-

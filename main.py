@@ -31,7 +31,7 @@ def solve_tsp(filename: str):
     visualize_tsp(solution, som.weights)
 
 
-    #log_params_result(som.epochs, som.init_learning_rate, som.weight_scale, filename, tsp_distance(solution))
+    #lnog_params_result(som.epochs, som.init_learning_rate, som.weight_scale, filename, tsp_distance(solution))
 
 
 if __name__ == "__main__":

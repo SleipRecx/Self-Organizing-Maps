@@ -41,8 +41,20 @@ def visualize_tsp(cities: tensor, weights: tensor):
     plt.savefig(name)
 
 
+def mnist_map(weights: tensor, classes):
+    plt.clf()
+    image = np.random.randn(weights.shape[0], weights.shape[1])
+    for i in range(weights.shape[0]):
+        for j in range(weights.shape[1]):
+            image[i][j] = classes[(i, j)].index(max(classes[(i, j)]))
+    cmap = plt.cm.get_cmap('tab10', 10)
+    plt.imshow(image, cmap=cmap)
+    plt.colorbar()
+    plt.pause(0.001)
+
+
 def print_progress(current_value, max_value):
-    percentage = int((current_value / (max_value - 1)) * 100)
+    percentage = int(((current_value + 1) / (max_value + 1)) * 100)
     color = "red"
     if percentage > 33:
         color = "yellow"
@@ -70,3 +82,4 @@ def create_gif():
     imageio.mimsave('tsp.gif', images, duration=0.2)
     for file in filenames_original:
         os.remove("images/" + file)
+
