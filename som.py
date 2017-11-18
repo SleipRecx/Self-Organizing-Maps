@@ -14,7 +14,7 @@ class SOM:
     def __init__(self, cases: tensor, epochs: int = 300, weight_scale: int = 5):
         self.cases = cases
         self.weight_scale = weight_scale
-        self.weights = np.random.uniform(self.cases.min(), self.cases.max(), size=self.cases.shape) * weight_scale
+        self.weights = np.random.uniform(cases.min(), cases.max(), size=(cases.shape[0] * weight_scale, cases.shape[1]))
         self.epochs = epochs
         self.init_learning_rate = 0.1
         self.init_radius = len(self.cases) / 2
